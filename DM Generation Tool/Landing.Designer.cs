@@ -1,6 +1,6 @@
 ﻿namespace DM_Generation_Tool
 {
-    partial class Form1
+    partial class Landing
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,12 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.Shop = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // Shop
+            // 
+            this.Shop.Location = new System.Drawing.Point(46, 47);
+            this.Shop.Name = "Shop";
+            this.Shop.Size = new System.Drawing.Size(193, 54);
+            this.Shop.TabIndex = 0;
+            this.Shop.Text = "Shop Inventory";
+            this.Shop.UseVisualStyleBackColor = true;
+            // 
+            // Landing
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Shop);
+            this.Name = "Landing";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private Button Shop;
     }
 }
