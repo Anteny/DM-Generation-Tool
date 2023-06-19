@@ -43,6 +43,7 @@
             this.AddItem.TabIndex = 0;
             this.AddItem.Text = "Add item to the generator";
             this.AddItem.UseVisualStyleBackColor = true;
+            this.AddItem.Click += new System.EventHandler(this.AddItem_Click);
             // 
             // button2
             // 

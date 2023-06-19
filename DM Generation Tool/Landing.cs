@@ -6,5 +6,11 @@ namespace DM_Generation_Tool
         {
             InitializeComponent();
         }
+
+        private void Shop_Click(object sender, EventArgs e)
+        {
+            Shop shopform = new();
+            shopform.ShowDialog();
+        }
     }
 }

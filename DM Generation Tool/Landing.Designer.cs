@@ -39,6 +39,7 @@
             this.Shop.TabIndex = 0;
             this.Shop.Text = "Shop Inventory";
             this.Shop.UseVisualStyleBackColor = true;
+            this.Shop.Click += new System.EventHandler(this.Shop_Click);
             // 
             // Landing
             // 

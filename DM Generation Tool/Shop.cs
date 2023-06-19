@@ -16,5 +16,11 @@ namespace DM_Generation_Tool
         {
             InitializeComponent();
         }
+
+        private void AddItem_Click(object sender, EventArgs e)
+        {
+            AddItemDeets AddItemForm = new();
+            AddItemForm.ShowDialog();
+        }
     }
 }

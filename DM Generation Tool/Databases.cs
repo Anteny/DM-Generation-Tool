@@ -12,20 +12,19 @@ namespace DM_Generation_Tool
     {
         public static int GetAmount(string name)
         {
+            CreateShopTables();
             string connectionString = "Data Source=DM.db";
             SQLiteConnection connection = new(connectionString);
             int count = 0;
             connection.Open();
 
             string selectQuery = "SELECT * FROM " + name;
-            using (SQLiteCommand command = new SQLiteCommand(selectQuery, connection))
+            using (SQLiteCommand command = new(selectQuery, connection))
             {
-                using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(command))
-                {
-                    DataTable dataTable = new DataTable();
-                    adapter.Fill(dataTable);
-                    count = dataTable.Rows.Count;
-                }
+                using SQLiteDataAdapter adapter = new(command);
+                DataTable dataTable = new();
+                adapter.Fill(dataTable);
+                count = dataTable.Rows.Count;
             }
 
             connection.Close();
@@ -38,7 +37,7 @@ namespace DM_Generation_Tool
 
             connection.Open();
 
-            string createDbQuery = "CREATE DATABASE IF NOT EXISTS DMGen";
+            string createDbQuery = "CREATE DATABASE IF NOT EXISTS DM";
             string createTableQuery = "CREATE TABLE IF NOT EXISTS Shop (ID INTEGER PRIMARY KEY, ItemName TEXT, " +
                 "ItemDescription TEXT, ItemPrice TEXT, ItemTheme TEXT, ShopType1 TEXT, ShopType2 TEXT, " +
                 "ShopType3 TEXT, ItemType TEXT)";
@@ -58,7 +57,6 @@ namespace DM_Generation_Tool
         public static void AddShopItem(int ID, string Name, string Des, string Price, string Theme, string Type1,
             string Type2, string Type3, string Type4)
         {
-            CreateShopTables();
             string connectionString = "Data Source=DM.db";
             SQLiteConnection connection = new(connectionString);
 
