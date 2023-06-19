@@ -7,8 +7,30 @@ using System.Threading.Tasks;
 namespace DM_Generation_Tool
 {
     using System.Data.SQLite;
+    using System.Data;
     internal class Databases
     {
+        public static int GetAmount(string name)
+        {
+            string connectionString = "Data Source=DM.db";
+            SQLiteConnection connection = new(connectionString);
+            int count = 0;
+            connection.Open();
+
+            string selectQuery = "SELECT * FROM " + name;
+            using (SQLiteCommand command = new SQLiteCommand(selectQuery, connection))
+            {
+                using (SQLiteDataAdapter adapter = new SQLiteDataAdapter(command))
+                {
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    count = dataTable.Rows.Count;
+                }
+            }
+
+            connection.Close();
+            return count;
+        }
         private static void CreateShopTables()
         {
             string connectionString = "Data Source=DM.db";

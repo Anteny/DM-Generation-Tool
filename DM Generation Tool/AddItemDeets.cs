@@ -35,7 +35,7 @@ namespace DM_Generation_Tool
                                     {
                                         if (Type4Text.Text != string.Empty)
                                         {
-                                            int id = Databases.Getamount('Shop') + 1;
+                                            int id = Databases.GetAmount("Shop") + 1;
                                             Databases.AddShopItem(id, NameText.Text, DesText.Text, PriceText.Text,
                                                 ThemeText.Text, Type1Text.Text, Type2Text.Text, Type3Text.Text, Type4Text.Text); 
                                             Close();
