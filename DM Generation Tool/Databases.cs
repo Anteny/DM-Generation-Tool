@@ -11,6 +11,40 @@ namespace DM_Generation_Tool
 
     internal class Databases
     {
+        public static string ShowItems(int mod)
+        {
+            int count = 0;
+            Random ran = new();
+            string items = string.Empty;
+            string connectionString = "Data Source=DM.db";
+            SQLiteConnection connection = new(connectionString);
+
+            connection.Open();
+            string stm = "SELECT COUNT(id) FROM Shop";
+            using var cmd = new SQLiteCommand(stm, connection);
+            using SQLiteDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                count = int.Parse($"{rdr.GetInt32(0)}");
+            }
+            for (int inc = 0; inc < mod; ++inc)
+            {
+                int pull = ran.Next(count);
+                int i = 0;
+                while (rdr.Read())
+                {
+                    if (i == pull)
+                    {
+                        items += $"{rdr.GetInt32(0)} {rdr.GetString(1)} {rdr.GetString(2)} {rdr.GetString(3)} {rdr.GetString(4)} {rdr.GetString(5)}" +
+                            $" {rdr.GetString(6)} {rdr.GetString(7)} {rdr.GetString(8)}" + "\n";
+                    }
+                    ++i;
+                }
+            }
+            connection.Close();
+            return items;
+        }
+
         public static string ShowAllItems()
         {
             string items = string.Empty;

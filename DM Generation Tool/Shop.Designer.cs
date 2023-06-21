@@ -28,40 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button2 = new System.Windows.Forms.Button();
+            this.GenerateItems = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ItemCount = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addItemToGeneratorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showAllItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ShopList = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button2
+            // GenerateItems
             // 
-            this.button2.Location = new System.Drawing.Point(498, 63);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(112, 34);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.GenerateItems.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.GenerateItems.Location = new System.Drawing.Point(646, 56);
+            this.GenerateItems.Name = "GenerateItems";
+            this.GenerateItems.Size = new System.Drawing.Size(142, 34);
+            this.GenerateItems.TabIndex = 1;
+            this.GenerateItems.Text = "Generate";
+            this.GenerateItems.UseVisualStyleBackColor = true;
+            this.GenerateItems.Click += new System.EventHandler(this.GenerateItems_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(48, 72);
+            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(23, 63);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 25);
+            this.label1.Size = new System.Drawing.Size(533, 27);
             this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
+            this.label1.Text = "Enter the number of items to generate (Max 100)";
             // 
-            // textBox1
+            // ItemCount
             // 
-            this.textBox1.Location = new System.Drawing.Point(166, 66);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(150, 31);
-            this.textBox1.TabIndex = 3;
+            this.ItemCount.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ItemCount.Location = new System.Drawing.Point(562, 55);
+            this.ItemCount.Name = "ItemCount";
+            this.ItemCount.Size = new System.Drawing.Size(78, 35);
+            this.ItemCount.TabIndex = 3;
             // 
             // menuStrip1
             // 
@@ -97,14 +102,25 @@
             this.showAllItemsToolStripMenuItem.Text = "Show All Items";
             this.showAllItemsToolStripMenuItem.Click += new System.EventHandler(this.ShowAllItemsToolStripMenuItem_Click);
             // 
+            // ShopList
+            // 
+            this.ShopList.AutoSize = true;
+            this.ShopList.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ShopList.Location = new System.Drawing.Point(23, 102);
+            this.ShopList.Name = "ShopList";
+            this.ShopList.Size = new System.Drawing.Size(77, 27);
+            this.ShopList.TabIndex = 5;
+            this.ShopList.Text = "label2";
+            // 
             // Shop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.ShopList);
+            this.Controls.Add(this.ItemCount);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.GenerateItems);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Shop";
@@ -117,12 +133,13 @@
         }
 
         #endregion
-        private Button button2;
+        private Button GenerateItems;
         private Label label1;
-        private TextBox textBox1;
+        private TextBox ItemCount;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem optionsToolStripMenuItem;
         private ToolStripMenuItem addItemToGeneratorToolStripMenuItem;
         private ToolStripMenuItem showAllItemsToolStripMenuItem;
+        private Label ShopList;
     }
 }

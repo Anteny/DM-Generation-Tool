@@ -27,5 +27,14 @@ namespace DM_Generation_Tool
         {
             MessageBox.Show(Databases.ShowAllItems());
         }
+
+        private void GenerateItems_Click(object sender, EventArgs e)
+        {
+            int temp = int.Parse(ItemCount.Text);
+            if (temp != 0)
+            {
+                ShopList.Text = Databases.ShowItems(temp);
+            }
+        }
     }
 }
