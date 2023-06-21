@@ -12,7 +12,6 @@ namespace DM_Generation_Tool
     {
         public static int GetAmount(string name)
         {
-            CreateShopTables();
             string connectionString = "Data Source=DM.db";
             SQLiteConnection connection = new(connectionString);
             int count = 0;
@@ -30,22 +29,18 @@ namespace DM_Generation_Tool
             connection.Close();
             return count;
         }
-        private static void CreateShopTables()
+        public static void CreateShopTables()
         {
             string connectionString = "Data Source=DM.db";
             SQLiteConnection connection = new(connectionString);
 
             connection.Open();
 
-            string createDbQuery = "CREATE DATABASE IF NOT EXISTS DM";
-            string createTableQuery = "CREATE TABLE IF NOT EXISTS Shop (ID INTEGER PRIMARY KEY, ItemName TEXT, " +
+ 
+            string createTableQuery = "CREATE TABLE Shop (ID INTEGER PRIMARY KEY, ItemName TEXT, " +
                 "ItemDescription TEXT, ItemPrice TEXT, ItemTheme TEXT, ShopType1 TEXT, ShopType2 TEXT, " +
                 "ShopType3 TEXT, ItemType TEXT)";
 
-            using (SQLiteCommand command = new(createDbQuery, connection))
-            {
-                command.ExecuteNonQuery();
-            }
             using (SQLiteCommand command = new(createTableQuery, connection))
             {
                 command.ExecuteNonQuery();
@@ -62,10 +57,10 @@ namespace DM_Generation_Tool
 
             connection.Open();
 
-            string insertQuery = "INSERT INTO Shop (ID, ItemName, ItemDescription, ItemPrice" +
-                "ItemTheme, ShopType1, ShopType2, ShopType3, ItemType) VALUES ('" + ID + "'" +
-                "'" + Name + "'" + "'" + Des + "'" + "'" + Price + "'" + "'" + Theme + "'" +
-                "'" + Type1 + "'" + "'" + Type2 + "'" + "'" + Type3 + "'" + "'" + Type4 + "')";
+            string insertQuery = "INSERT INTO Shop (ID, ItemName, ItemDescription, ItemPrice, " +
+                "ItemTheme, ShopType1, ShopType2, ShopType3, ItemType) VALUES ('" + ID + "', " +
+                "'" + Name + "', " + "'" + Des + "', " + "'" + Price + "', " + "'" + Theme + "', " +
+                "'" + Type1 + "', " + "'" + Type2 + "', " + "'" + Type3 + "', " + "'" + Type4 + "')";
             using (SQLiteCommand command = new(insertQuery, connection))
             {
                 command.ExecuteNonQuery();

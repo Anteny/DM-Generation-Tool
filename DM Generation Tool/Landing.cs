@@ -12,5 +12,10 @@ namespace DM_Generation_Tool
             Shop shopform = new();
             shopform.ShowDialog();
         }
+
+        private void InitializationOneTimeOnlyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Databases.CreateShopTables();
+        }
     }
 }

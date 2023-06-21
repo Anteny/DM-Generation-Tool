@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.Shop = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.initializationOneTimeOnlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Shop
@@ -41,20 +45,54 @@
             this.Shop.UseVisualStyleBackColor = true;
             this.Shop.Click += new System.EventHandler(this.Shop_Click);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.optionsToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(800, 33);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // optionsToolStripMenuItem
+            // 
+            this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.initializationOneTimeOnlyToolStripMenuItem});
+            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(92, 29);
+            this.optionsToolStripMenuItem.Text = "Options";
+            // 
+            // initializationOneTimeOnlyToolStripMenuItem
+            // 
+            this.initializationOneTimeOnlyToolStripMenuItem.Name = "initializationOneTimeOnlyToolStripMenuItem";
+            this.initializationOneTimeOnlyToolStripMenuItem.Size = new System.Drawing.Size(341, 34);
+            this.initializationOneTimeOnlyToolStripMenuItem.Text = "Initialization (One Time Only)";
+            this.initializationOneTimeOnlyToolStripMenuItem.Click += new System.EventHandler(this.InitializationOneTimeOnlyToolStripMenuItem_Click);
+            // 
             // Landing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.Shop);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Landing";
-            this.Text = "Form1";
+            this.Text = "Generator";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private Button Shop;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem optionsToolStripMenuItem;
+        private ToolStripMenuItem initializationOneTimeOnlyToolStripMenuItem;
     }
 }
