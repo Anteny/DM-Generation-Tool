@@ -17,10 +17,15 @@ namespace DM_Generation_Tool
             InitializeComponent();
         }
 
-        private void AddItem_Click(object sender, EventArgs e)
+        private void AddItemToGeneratorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddItemDeets AddItemForm = new();
             AddItemForm.ShowDialog();
+        }
+
+        private void ShowAllItemsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(Databases.ShowAllItems());
         }
     }
 }

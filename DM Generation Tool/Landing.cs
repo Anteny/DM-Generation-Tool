@@ -17,5 +17,10 @@ namespace DM_Generation_Tool
         {
             Databases.CreateShopTables();
         }
+
+        private void DeleteDatabasesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Databases.DropShopTables();
+        }
     }
 }

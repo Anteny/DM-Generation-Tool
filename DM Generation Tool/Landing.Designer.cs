@@ -32,6 +32,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.initializationOneTimeOnlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteDatabasesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,7 +60,8 @@
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.initializationOneTimeOnlyToolStripMenuItem});
+            this.initializationOneTimeOnlyToolStripMenuItem,
+            this.deleteDatabasesToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(92, 29);
             this.optionsToolStripMenuItem.Text = "Options";
@@ -67,9 +69,16 @@
             // initializationOneTimeOnlyToolStripMenuItem
             // 
             this.initializationOneTimeOnlyToolStripMenuItem.Name = "initializationOneTimeOnlyToolStripMenuItem";
-            this.initializationOneTimeOnlyToolStripMenuItem.Size = new System.Drawing.Size(341, 34);
-            this.initializationOneTimeOnlyToolStripMenuItem.Text = "Initialization (One Time Only)";
+            this.initializationOneTimeOnlyToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.initializationOneTimeOnlyToolStripMenuItem.Text = "Initialization";
             this.initializationOneTimeOnlyToolStripMenuItem.Click += new System.EventHandler(this.InitializationOneTimeOnlyToolStripMenuItem_Click);
+            // 
+            // deleteDatabasesToolStripMenuItem
+            // 
+            this.deleteDatabasesToolStripMenuItem.Name = "deleteDatabasesToolStripMenuItem";
+            this.deleteDatabasesToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.deleteDatabasesToolStripMenuItem.Text = "Delete Databases";
+            this.deleteDatabasesToolStripMenuItem.Click += new System.EventHandler(this.DeleteDatabasesToolStripMenuItem_Click);
             // 
             // Landing
             // 
@@ -94,5 +103,6 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem optionsToolStripMenuItem;
         private ToolStripMenuItem initializationOneTimeOnlyToolStripMenuItem;
+        private ToolStripMenuItem deleteDatabasesToolStripMenuItem;
     }
 }

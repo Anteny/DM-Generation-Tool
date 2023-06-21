@@ -3,13 +3,58 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SQLite;
+using System.Data;
 
 namespace DM_Generation_Tool
 {
-    using System.Data.SQLite;
-    using System.Data;
+
     internal class Databases
     {
+        public static string ShowAllItems()
+        {
+            string items = string.Empty;
+
+            string connectionString = "Data Source=DM.db";
+            SQLiteConnection connection = new(connectionString);
+
+            connection.Open();
+
+
+            string stm = "SELECT * FROM Shop";
+
+
+            using var cmd = new SQLiteCommand(stm, connection);
+            using SQLiteDataReader rdr = cmd.ExecuteReader();
+
+            while (rdr.Read())
+            {
+                items += $"{rdr.GetInt32(0)} {rdr.GetString(1)} {rdr.GetString(2)} {rdr.GetString(3)} {rdr.GetString(4)} {rdr.GetString(5)}" +
+                    $" {rdr.GetString(6)} {rdr.GetString(7)} {rdr.GetString(8)}" + "\n";
+            }
+
+            connection.Close();
+
+            return items;
+        }
+        public static void DropShopTables()
+        {
+            string connectionString = "Data Source=DM.db";
+            SQLiteConnection connection = new(connectionString);
+
+            connection.Open();
+
+
+            string createTableQuery = "DROP TABLE Shop";
+
+            using (SQLiteCommand command = new(createTableQuery, connection))
+            {
+                command.ExecuteNonQuery();
+            }
+
+            connection.Close();
+        }
+
         public static int GetAmount(string name)
         {
             string connectionString = "Data Source=DM.db";
